@@ -1,4 +1,4 @@
-use axum::{Router, routing};
+use axum::{Router, debug_handler, routing};
 use tokio::net::TcpListener;
 
 #[tokio::main]
