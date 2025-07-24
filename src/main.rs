@@ -17,7 +17,7 @@ async fn main() {
     tracing::info!("listening on http://{}", ADDR);
 
     // 启动服务器
-    axum::serve(listener, app).await.unwrap();
+    axum::serve(listener, app).await?;
 }
 
 #[debug_handler]

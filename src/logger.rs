@@ -1,5 +1,6 @@
-use tracing_subscriber::prelude::*;
 use tracing_subscriber::EnvFilter;
+use tracing_subscriber::layer::SubscriberExt;
+use tracing_subscriber::util::SubscriberInitExt;
 
 pub fn init() {
     tracing_subscriber::registry()
@@ -10,7 +11,7 @@ pub fn init() {
                 .with_line_number(true)
                 .with_thread_ids(true)
                 .with_thread_names(true)
-                .with_target(true),
+                .with_target(false),
         )
         .init();
 }
