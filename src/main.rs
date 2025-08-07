@@ -17,10 +17,10 @@ async fn main() {
         .route("/health", routing::get(health_check));
 
     // 绑定地址和端口
-    let listener = TcpListener::bind(format!("0.0.0.0:{}", port))
+    let listener = TcpListener::bind(format!("127.0.0.1:{}", port))
         .await
         .unwrap();
-    tracing::info!("listening on http://0.0.0.0:{}", port);
+    tracing::info!("listening on http://127.0.0.1:{}", port);
 
     // 启动服务器
     axum::serve(listener, app).await.unwrap();

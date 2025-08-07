@@ -28,12 +28,12 @@ impl AppConfig {
                     .separator("_")
                     .list_separator(","),
             )
-            .build()?
-            .with_context(|| anyhow::anyhow!("Failed to load configuration"))?
+            .build()
+            .context("Failed to load configuration")?
             .try_deserialize()
-            .with_context(|| anyhow::anyhow!("Failed to deserialize configuration"))
+            .context("Failed to deserialize configuration")
     }
 }
-pub fn get() {
+pub fn get() -> &'static LazyLock<AppConfig> {
     &CONFIG
 }
